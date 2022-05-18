@@ -1,6 +1,5 @@
 package com.example.fordogfans.model
 
-import android.util.Log
 import com.example.fordogfans.network.model.Message
 import kotlin.reflect.full.declaredMemberProperties
 
@@ -12,6 +11,5 @@ fun Message.toDogBreedList(): DogBreedList {
         val breed = Breed(property.name, property.getter.call(this) as List<String>)
         dogBreedList.breeds += breed
     }
-    Log.d("TAG", "toDogBreedList: $dogBreedList ")
     return dogBreedList
 }

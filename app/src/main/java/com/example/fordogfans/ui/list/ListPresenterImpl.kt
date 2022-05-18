@@ -10,9 +10,8 @@ import kotlinx.coroutines.withContext
 import org.koin.core.component.KoinComponent
 import retrofit2.HttpException
 
-class ListPresenterImpl(private val service: DogService) : ListPresenter, KoinComponent {
-    private lateinit var view: ListView
-    override fun setView(view: ListView) {
+class ListPresenterImpl(private val service: DogService) : ListPresenter(), KoinComponent {
+    override fun setupView(view: ListView) {
         this.view = view
     }
 

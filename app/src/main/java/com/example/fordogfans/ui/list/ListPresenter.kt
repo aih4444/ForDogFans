@@ -1,7 +1,8 @@
 package com.example.fordogfans.ui.list
 
-interface ListPresenter {
+import com.example.fordogfans.ui.base.BasePresenter
 
-    fun setView(view: ListView)
-    fun getDogBreeds()
+abstract class ListPresenter: BasePresenter<ListView>() {
+
+    abstract fun getDogBreeds()
 }

@@ -1,7 +1,8 @@
 package com.example.fordogfans.ui.detail
 
-interface DetailPresenter {
+import com.example.fordogfans.ui.base.BasePresenter
 
-     fun setView(view: DetailView)
-     fun getRandomImagesOfBreed(dogBreedName: String)
+abstract class DetailPresenter: BasePresenter<DetailView>() {
+
+     abstract fun getRandomImagesOfBreed(dogBreedName: String)
 }

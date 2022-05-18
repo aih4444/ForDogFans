@@ -10,5 +10,7 @@ val retrofitModule = module {
     single { provideService(get()) }
 }
 
-fun provideRetrofit() = Retrofit.Builder().baseUrl("https://dog.ceo/api/").addConverterFactory(GsonConverterFactory.create()).build()
-fun provideService(retrofit: Retrofit) = retrofit.create(DogService::class.java)
+fun provideRetrofit(): Retrofit = Retrofit.Builder().baseUrl("https://dog.ceo/api/")
+    .addConverterFactory(GsonConverterFactory.create()).build()
+
+fun provideService(retrofit: Retrofit): DogService = retrofit.create(DogService::class.java)

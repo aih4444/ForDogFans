@@ -8,10 +8,9 @@ import kotlinx.coroutines.launch
 import kotlinx.coroutines.withContext
 import retrofit2.HttpException
 
-class DetailPresenterImpl(private val service: DogService) : DetailPresenter {
-    private lateinit var view: DetailView
+class DetailPresenterImpl(private val service: DogService) : DetailPresenter() {
 
-    override fun setView(view: DetailView) {
+    override fun setupView(view: DetailView) {
         this.view = view
     }
 
@@ -22,7 +21,6 @@ class DetailPresenterImpl(private val service: DogService) : DetailPresenter {
                 try {
                     if (response.isSuccessful) {
                         val dogBreedList = response.body()?.imageUrls
-                        Log.d("TAG", "getRandomImagesOfBreed: ${dogBreedList?.get(0)} ")
                         view.onRetrievedDogImageUrls(dogBreedList ?: emptyList())
                     }
                 } catch (exception: HttpException) {

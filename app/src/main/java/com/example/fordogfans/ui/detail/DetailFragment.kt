@@ -37,7 +37,7 @@ class DetailFragment : Fragment(), DetailView {
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
-        presenter.setView(this)
+        presenter.setupView(this)
 
         binding.imagesRecyclerview.apply {
             adapter = imagesDataAdapter
