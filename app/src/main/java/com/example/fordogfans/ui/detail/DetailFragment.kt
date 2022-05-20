@@ -7,7 +7,7 @@ import android.view.View
 import android.view.ViewGroup
 import androidx.fragment.app.Fragment
 import androidx.navigation.fragment.navArgs
-import androidx.recyclerview.widget.StaggeredGridLayoutManager
+import androidx.recyclerview.widget.LinearLayoutManager
 import com.example.fordogfans.databinding.FragmentDetailBinding
 import com.example.fordogfans.ui.detail.recyclerview.ImagesDataAdapter
 import org.koin.android.ext.android.inject
@@ -41,7 +41,8 @@ class DetailFragment : Fragment(), DetailView {
 
         binding.imagesRecyclerview.apply {
             adapter = imagesDataAdapter
-            layoutManager = StaggeredGridLayoutManager(3,StaggeredGridLayoutManager.VERTICAL)
+//            layoutManager = GridLayoutManager(context,3,GridLayoutManager.VERTICAL,false)
+            layoutManager = LinearLayoutManager(context)
         }
 
         val args: DetailFragmentArgs by navArgs()

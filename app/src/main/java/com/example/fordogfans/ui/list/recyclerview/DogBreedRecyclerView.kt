@@ -44,7 +44,7 @@ class DogBreedViewHolder(val viewBinding: DogBreedListItemBinding) :
 
 class DogBreedAdapter(private var data: DogBreedList) : RecyclerView.Adapter<DogBreedViewHolder>() {
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): DogBreedViewHolder {
-        val viewBinding = DogBreedListItemBinding.inflate(LayoutInflater.from(parent.context))
+        val viewBinding = DogBreedListItemBinding.inflate(LayoutInflater.from(parent.context),parent,false)
         return DogBreedViewHolder(viewBinding)
     }
 
