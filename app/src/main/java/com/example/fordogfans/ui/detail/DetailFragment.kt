@@ -7,7 +7,7 @@ import android.view.View
 import android.view.ViewGroup
 import androidx.fragment.app.Fragment
 import androidx.navigation.fragment.navArgs
-import androidx.recyclerview.widget.LinearLayoutManager
+import androidx.recyclerview.widget.StaggeredGridLayoutManager
 import com.example.fordogfans.MainActivity
 import com.example.fordogfans.R
 import com.example.fordogfans.databinding.FragmentDetailBinding
@@ -30,9 +30,8 @@ class DetailFragment : Fragment(), DetailView {
     override fun onCreateView(
             inflater: LayoutInflater, container: ViewGroup?,
             savedInstanceState: Bundle?
-    ): View? {
+    ): View {
         _binding = FragmentDetailBinding.inflate(inflater, container, false)
-
         return binding.root
 
     }
@@ -43,11 +42,10 @@ class DetailFragment : Fragment(), DetailView {
 
         binding.imagesRecyclerview.apply {
             adapter = imagesDataAdapter
-            layoutManager = LinearLayoutManager(context)
+            layoutManager = StaggeredGridLayoutManager(2, StaggeredGridLayoutManager.VERTICAL)
         }
         val args: DetailFragmentArgs by navArgs()
         (requireActivity() as MainActivity).supportActionBar?.title = getString(R.string.second_fragment_label, args.dogBreed )
-
         presenter.getRandomImagesOfBreed(args.dogBreed)
     }
 
