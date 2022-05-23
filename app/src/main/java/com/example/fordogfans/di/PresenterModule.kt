@@ -6,7 +6,7 @@ import com.example.fordogfans.ui.list.ListPresenter
 import com.example.fordogfans.ui.list.ListPresenterImpl
 import org.koin.dsl.module
 
-    val presentersModule = module {
-        single<DetailPresenter> { DetailPresenterImpl(get()) }
-        single<ListPresenter> { ListPresenterImpl(get()) }
-    }
+val presentersModule = module {
+    single<DetailPresenter> { DetailPresenterImpl(get()) }
+    single<ListPresenter> { ListPresenterImpl(get()) }
+}
