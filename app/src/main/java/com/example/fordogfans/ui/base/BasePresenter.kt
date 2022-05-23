@@ -6,6 +6,4 @@ abstract class BasePresenter<V:BaseView> {
     open fun setupView(view: V){
         this.view = view
     }
-
-
 }

@@ -1,7 +1,5 @@
 package com.example.fordogfans.ui.list
 
-import com.example.fordogfans.model.DogBreedList
-import com.example.fordogfans.model.toDogBreedList
 import com.example.fordogfans.network.UseCaseResult.Error
 import com.example.fordogfans.network.UseCaseResult.Success
 import com.example.fordogfans.network.UseCaseResult.UnknownError
@@ -24,9 +22,7 @@ class ListPresenterImpl(
             withContext(Dispatchers.Main) {
                 when (useCaseResult) {
                     is Success -> {
-                        val dogBreedList =
-                            useCaseResult.response.body()?.dogBreeds?.toDogBreedList()
-                        view.onRetrievedDogBreeds(dogBreedList ?: DogBreedList())
+                        view.onRetrievedDogBreeds(useCaseResult.value)
                     }
                     is Error -> TODO()
                     UnknownError -> TODO()

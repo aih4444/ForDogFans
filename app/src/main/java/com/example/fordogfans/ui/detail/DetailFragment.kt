@@ -33,7 +33,6 @@ class DetailFragment : Fragment(), DetailView {
     ): View {
         _binding = FragmentDetailBinding.inflate(inflater, container, false)
         return binding.root
-
     }
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
@@ -55,7 +54,6 @@ class DetailFragment : Fragment(), DetailView {
     }
 
     override fun onRetrievedDogImageUrls(imagesUrls: List<String>) {
-        Log.d("TAG", "onRetrievedDogImageUrls: ${imagesUrls[0]}")
         imagesDataAdapter.updateData(imagesUrls)
     }
 }
