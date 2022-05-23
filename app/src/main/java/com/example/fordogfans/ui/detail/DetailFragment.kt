@@ -7,7 +7,7 @@ import android.view.View
 import android.view.ViewGroup
 import androidx.fragment.app.Fragment
 import androidx.navigation.fragment.navArgs
-import androidx.recyclerview.widget.StaggeredGridLayoutManager
+import androidx.recyclerview.widget.GridLayoutManager
 import com.example.fordogfans.MainActivity
 import com.example.fordogfans.R
 import com.example.fordogfans.databinding.FragmentDetailBinding
@@ -42,7 +42,7 @@ class DetailFragment : Fragment(), DetailView {
 
         binding.imagesRecyclerview.apply {
             adapter = imagesDataAdapter
-            layoutManager = StaggeredGridLayoutManager(2, StaggeredGridLayoutManager.VERTICAL)
+            layoutManager = GridLayoutManager(context,2)
         }
         val args: DetailFragmentArgs by navArgs()
         (requireActivity() as MainActivity).supportActionBar?.title = getString(R.string.second_fragment_label, args.dogBreed )
